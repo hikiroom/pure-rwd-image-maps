@@ -1,8 +1,8 @@
 # RWD MAP Elements
 
-画面上に表示されているすべての<map>要素をレスポンシブ化させるためのスクリプトです。
+画面上に表示されているすべての`<map>`要素をレスポンシブ化させるためのスクリプトです。
 
-this script is convert all <map> element to RWD in screen
+this script is convert all `<map>` element to RWD in screen
 
 ## 使い方(Usage)
 
