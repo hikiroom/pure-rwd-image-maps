@@ -6,8 +6,8 @@ this script is convert all <map> element to RWD in screen
 
 ## 使い方(Usage)
 
-`usemap`を付与しているimg要素に`data-width`と`data-height`属性を付与してください。
-各属性値はimg要素が読み込んでいる画像の原寸サイズを指定してください。
+`usemap`を付与しているimg要素に`data-width`と`data-height`属性を付与してください。  
+各属性値はimg要素が読み込んでいる画像の原寸サイズを指定してください。  
 
 please add `data-width` and `data-height` attributes to the img element that has `usemap`.
 each attribute is please specified init size of loading image of img element.
