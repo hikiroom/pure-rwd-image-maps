@@ -1,4 +1,4 @@
-# RWD MAP Element
+# RWD MAP Elements
 
 画面上に表示されているすべての<map>要素をレスポンシブ化させるためのスクリプトです。
 
