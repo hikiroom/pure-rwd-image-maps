@@ -18,6 +18,7 @@ each attribute is please specified init size of loading image of img element.
 </map>
 ```
 
+---
 このREADME.mdはGoogle翻訳を頼りに翻訳しています。
 
 this README.md is translate to using the google translate
