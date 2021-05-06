@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pure RWD Image Maps Demo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/pureRwdImageMaps.js"></script>
+</head>
+<body>
+    <img src="./image/sample.png" alt="" usemap="#sample">
+    <map name="sample">
+        <area alt="square" title="square" href="#" coords="50,50,181,180" shape="rect">
+        <area alt="triangle" title="triangle" href="#" coords="401,174,336,288,465,288 " shape="polygon">
+        <area alt="circle" title="circle" href="#" coords="685,386,65" shape="circle">
+    </map>
+
+    <script>
+        const target = document.querySelector('img[usemap="#sample"]');
+        const pureRwdImageMaps = new PureRwdImageMaps(target);
+    </script>
+</body>
+</html>
