@@ -12,7 +12,7 @@
     "dev": "NODE_ENV=development webpack -w",
     "test": "jest",
     "prepare": "husky install",
-    "git-add": "git add",
+    "git-add": "git add .",
     "pre-commit": "npm-run-all -s test build git-add"
   },
   "keywords": [
