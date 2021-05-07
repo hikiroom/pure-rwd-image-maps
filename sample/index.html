@@ -4,21 +4,63 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pure RWD Image Maps Demo</title>
+    <title>Pure RWD Image Maps Sample</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/pureRwdImageMaps.js"></script>
 </head>
 <body>
-    <img src="./image/sample.png" alt="" usemap="#sample">
-    <map name="sample">
+    <h1>Pure RWD Image Maps</h1>
+    <p>Let's resize the screen to see the function :D</p>
+    <h2>default</h2>
+    <img src="./image/sample.png" alt="" usemap="#sample1">
+    <map name="sample1">
+        <area alt="square" title="square" href="#" coords="50,50,181,180" shape="rect">
+        <area alt="triangle" title="triangle" href="#" coords="401,174,336,288,465,288 " shape="polygon">
+        <area alt="circle" title="circle" href="#" coords="685,386,65" shape="circle">
+    </map>
+
+    <h2>vertical: false</h2>
+    <img src="./image/sample.png" alt="" usemap="#sample2">
+    <map name="sample2">
+        <area alt="square" title="square" href="#" coords="50,50,181,180" shape="rect">
+        <area alt="triangle" title="triangle" href="#" coords="401,174,336,288,465,288 " shape="polygon">
+        <area alt="circle" title="circle" href="#" coords="685,386,65" shape="circle">
+    </map>
+
+    <h2>horizontal: false</h2>
+    <img src="./image/sample.png" alt="" usemap="#sample3">
+    <map name="sample3">
+        <area alt="square" title="square" href="#" coords="50,50,181,180" shape="rect">
+        <area alt="triangle" title="triangle" href="#" coords="401,174,336,288,465,288 " shape="polygon">
+        <area alt="circle" title="circle" href="#" coords="685,386,65" shape="circle">
+    </map>
+
+    <h2>autoRwd: false</h2>
+    <img src="./image/sample.png" alt="" usemap="#sample4">
+    <map name="sample4">
         <area alt="square" title="square" href="#" coords="50,50,181,180" shape="rect">
         <area alt="triangle" title="triangle" href="#" coords="401,174,336,288,465,288 " shape="polygon">
         <area alt="circle" title="circle" href="#" coords="685,386,65" shape="circle">
     </map>
 
     <script>
-        const target = document.querySelector('img[usemap="#sample"]');
-        const pureRwdImageMaps = new PureRwdImageMaps(target);
+        const basic = document.querySelector('img[usemap="#sample1"]');
+        new PureRwdImageMaps(basic);
+
+        const vertical = document.querySelector('img[usemap="#sample2"]');
+        new PureRwdImageMaps(vertical, {
+            vertical: false,
+        });
+
+        const horizontal = document.querySelector('img[usemap="#sample3"]');
+        new PureRwdImageMaps(horizontal, {
+            horizontal: false,
+        });
+
+        const autoRwd = document.querySelector('img[usemap="#sample4"]');
+        new PureRwdImageMaps(horizontal, {
+            autoRwd: false,
+        });
     </script>
 </body>
 </html>

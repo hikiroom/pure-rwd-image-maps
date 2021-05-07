@@ -1,5 +1,17 @@
+interface PureRwdImageMapsUserOptions {
+    autoRwd?: boolean;
+    vertical?: boolean;
+    horizontal?: boolean;
+}
+interface PureRwdImageMapsOptions {
+    autoRwd: boolean;
+    vertical: boolean;
+    horizontal: boolean;
+}
 class PureRwdImageMaps {
     readonly autoRwd: boolean;
+    readonly vertical: boolean;
+    readonly horizontal: boolean;
     loaded: boolean = false;
     readonly name: string;
     readonly targetImg: HTMLImageElement;
@@ -10,8 +22,17 @@ class PureRwdImageMaps {
     targetAreasNaturalCoords: string[] = [];
     resizeObserver: ResizeObserver|null = null;
 
-    constructor(targetImg:HTMLImageElement, autoRwd = true) {
-        this.autoRwd = autoRwd;
+    constructor(targetImg:HTMLImageElement, userOptions: PureRwdImageMapsUserOptions = {}) {
+        this.targetImg = targetImg;
+
+        const options: PureRwdImageMapsOptions = Object.assign({
+            autoRwd: true,
+            vertical: true,
+            horizontal: true,
+        }, userOptions);
+        this.autoRwd = options.autoRwd;
+        this.vertical = options.vertical;
+        this.horizontal = options.horizontal;
 
         const name = targetImg.getAttribute('usemap');
         if (!name) {
@@ -19,8 +40,6 @@ class PureRwdImageMaps {
         }
         this.name = name.replace('#', '');
         
-        this.targetImg = targetImg;
-
         const targetMap = document.querySelector<HTMLMapElement>(`map[name=${this.name}]`);
         if (!targetMap) {
             throw new Error('do not exist "map element".');
@@ -50,10 +69,8 @@ class PureRwdImageMaps {
     private computeCoords() {
         const targetImageWidth = this.targetImg.offsetWidth;
         const targetImageHeight = this.targetImg.offsetHeight;
-        const _percentWidth = targetImageWidth / this.targetImgNaturalWidth;
-        const percentWidth = _percentWidth < 1 ? _percentWidth : 1;
-        const _percentHeight = targetImageHeight / this.targetImgNaturalHeight;
-        const percentHeight = _percentHeight < 1 ? _percentHeight : 1;
+        const percentWidth = targetImageWidth / this.targetImgNaturalWidth;
+        const percentHeight = targetImageHeight / this.targetImgNaturalHeight;
 
         for (let i = this.targetAreas.length; i--;) {
             const coords = this.targetAreasNaturalCoords[i].split(',');
@@ -62,10 +79,12 @@ class PureRwdImageMaps {
             for (let j = coords.length; j--;) {
                 const coord = Number(coords[j]);
 
-                if ((j + 1) % 2 === 0) {
+                if (j % 2 === 0 && this.horizontal) {
                     computedCoords[j] = coord * percentWidth;
-                } else {
+                } else if (j % 2 !== 0 && this.vertical) {
                     computedCoords[j] = coord * percentHeight;
+                } else {
+                    computedCoords[j] = coord;
                 }
             }
 
