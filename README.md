@@ -41,39 +41,39 @@ const pureRwdImageMaps = new PureRwdImageMaps(target, options); // No problem wi
 
 ### Options
 
-`autoRwd`
+#### `autoRwd`
 
 | Type | Default value |
-| --- | --- |
+| :-: | :-: |
 | Boolean | true |
 
 Whether to make the coordinate data responsive or not at the same time as initializing the Object.
 
-`vertical`
+#### `vertical`
 
 | Type | Default value |
-| --- | --- |
+| :-: | :-: |
 | Boolean | true |
 
 Whether to make the vertical axis responsive or not.
 
-`horizontal`
+#### `horizontal`
 
 | Type | Default value |
-| --- | --- |
+| :-: | :-: |
 | Boolean | true |
 
 Whether to make the horizontal axis responsive or not.
 
 ### Instance methods
 
-`toRwd`
+#### `toRwd`
 
 Make the coordinate data responsive.
 
 *It cannot be executed until the src of the target img element is loaded. You can check if it is loaded or not with `pureRwdImageMaps.loaded`.*
 
-`toStatic`
+#### `toStatic`
 
 Unresponsive coordinate data.
 
