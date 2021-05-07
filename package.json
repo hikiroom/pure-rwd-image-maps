@@ -7,6 +7,9 @@
     "url": "https://github.com/hikiroom/pure-rwd-image-maps.git"
   },
   "main": "dist/pureRwdImageMaps.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "dev": "NODE_ENV=development webpack -w",
