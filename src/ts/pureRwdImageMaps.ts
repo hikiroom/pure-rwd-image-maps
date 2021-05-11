@@ -1,8 +1,3 @@
-interface PureRwdImageMapsUserOptions {
-    autoRwd?: boolean;
-    vertical?: boolean;
-    horizontal?: boolean;
-}
 interface PureRwdImageMapsOptions {
     autoRwd: boolean;
     vertical: boolean;
@@ -22,7 +17,7 @@ class PureRwdImageMaps {
     targetAreasNaturalCoords: string[] = [];
     resizeObserver: ResizeObserver|null = null;
 
-    constructor(targetImg:HTMLImageElement, userOptions: PureRwdImageMapsUserOptions = {}) {
+    constructor(targetImg:HTMLImageElement, userOptions: Partial<PureRwdImageMaps> = {}) {
         this.targetImg = targetImg;
 
         const options: PureRwdImageMapsOptions = Object.assign({

@@ -1,8 +1,3 @@
-interface PureRwdImageMapsUserOptions {
-    autoRwd?: boolean;
-    vertical?: boolean;
-    horizontal?: boolean;
-}
 declare class PureRwdImageMaps {
     readonly autoRwd: boolean;
     readonly vertical: boolean;
@@ -16,7 +11,7 @@ declare class PureRwdImageMaps {
     targetImgNaturalWidth: number;
     targetAreasNaturalCoords: string[];
     resizeObserver: ResizeObserver | null;
-    constructor(targetImg: HTMLImageElement, userOptions?: PureRwdImageMapsUserOptions);
+    constructor(targetImg: HTMLImageElement, userOptions?: Partial<PureRwdImageMaps>);
     private init;
     private computeCoords;
     private resetCoords;
